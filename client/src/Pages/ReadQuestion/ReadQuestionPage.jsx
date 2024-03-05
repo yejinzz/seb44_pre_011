@@ -2,7 +2,6 @@ import Button from "@mui/material/Button";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import Header from "../../Components/Header/Header";
 import Aside from "../../Components/Aside/Aside";
 import Editor from "../../Components/Editor/Editor";
 import Footer from "../../Components/Footer/Footer";
@@ -163,7 +162,6 @@ const ReadQuestionPage = () => {
 
   return (
     <div>
-      <Header />
       <div id={style.main}>
         <div id={style.asdie}>
           <Aside />

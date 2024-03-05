@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import styles from "./UserProfilePage.module.css";
-import Header from "../../Components/Header/Header";
 import Footer from "../../Components/Footer/Footer";
 import Aside from "../../Components/Aside/Aside";
 import EmailIcon from "@mui/icons-material/Email";
@@ -64,7 +63,6 @@ const UserProfilePage = () => {
   return (
     <div className={styles.flex_column}>
       <div id={styles.field} className={`${styles.flex_column}`}>
-        <Header />
         <div
           className={`${styles.flex_row} ${styles.justify_center} ${styles.flexGrow_1}`}
         >

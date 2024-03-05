@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import styles from "./EditProfile.module.css";
-import Header from "../../Components/Header/Header";
 import Aside from "../../Components/Aside/Aside";
 import Footer from "../../Components/Footer/Footer";
 import PersonIcon from "@mui/icons-material/Person";
@@ -8,9 +7,12 @@ import EmailIcon from "@mui/icons-material/Email";
 import { Button, Divider, TextField, Typography } from "@mui/material";
 import { editProfile, getUser } from "../../Function/api";
 import { useNavigate } from "react-router-dom";
+
 const EditProfile = () => {
   const navigate = useNavigate();
+
   const id = sessionStorage.getItem("id");
+
   const [user, setUser] = useState({});
   const [updateInfo, setUpdateInfo] = useState({
     displayName: "",
@@ -20,6 +22,7 @@ const EditProfile = () => {
     image: user?.image,
     uploadImage: "",
   });
+
   const clickSave = async () => {
     try {
       await editProfile(user.memberId, updateInfo).then((res) => {
@@ -47,7 +50,6 @@ const EditProfile = () => {
   return (
     <div className={styles.flex_column}>
       <div id={styles.field} className={`${styles.flex_column}`}>
-        <Header />
         <div
           className={`${styles.flex_row} ${styles.justify_center} ${styles.flexGrow_1}`}
         >

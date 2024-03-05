@@ -1,54 +1,30 @@
-.AllContainer{
-    background-color: rgb(234, 234, 234);
-    display: flex; 
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    height: 100vh;
+.loginPageContainer {
+  background-color: rgb(234, 234, 234);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
-.Container{
-    margin: 15px;
-    display: flex;
-    flex-direction: row;
+.logoContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.logoimg{
-    height: 5.5vh;
-    width: 5.5vh;
+.logoImg {
+  display: block;
+  margin: 1rem auto;
+  height: 5.5vh;
+  width: 5.5vh;
 }
-
-.formContainer{
-    background-color: white;
-    width: 288px;
-    height: 250px;
-    border-radius: 5px;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-    display: flex;
-    justify-content: center;
+.loginNotice {
+  display: block;
+  font-size: 0.875rem;
+  text-align: center;
 }
-
-.form{
-    display: flex;
-    flex-direction: column;
-    margin-top: 25px;
+.loginNotice a {
+  font-weight: 500;
+  color: rgb(77, 111, 175);
+  margin-left: 10px;
 }
-
-.title{
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 20px;
-    font-weight: bold;
-}
-
-.input{
-    border-style: none;
-    outline: none;
-    font-size: 14px;
-    color: rgb(63, 63, 63);
-    border: 1px solid rgb(180, 180, 180);
-    border-radius: 5px;
-    height: 35px;
-    width: 250px;
-}
-

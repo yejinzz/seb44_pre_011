@@ -1,63 +1,48 @@
-.headerContainer {
+#headerContainer {
   position: sticky;
   top: 0;
   border-top: 4px solid rgb(255, 140, 0);
   background: rgb(255, 255, 255);
   border-bottom: 1px solid rgb(205, 205, 205);
   width: 100%;
-  height: 65px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   color: rgb(63, 63, 63);
   z-index: 2;
 }
-.headerContainer > * {
-  margin: 0 10px;
-  flex-basis: auto;
+.headerWrapper {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1000px;
+  height: 65px;
+  margin: auto;
 }
-
-.headerContainer:hover > * {
-  cursor: pointer;
+.leftContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* gap: 1rem; */
 }
-
+.rightContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
 .logo {
   display: flex;
   width: 150px;
   height: 30px;
   background-color: white;
+  cursor: pointer;
 }
-
-.SearchBarContainer {
-  width: 40%;
-  height: 50%;
-  border: 1px solid gray;
-  border-radius: 3px;
-  display: flex;
-  justify-content: left;
-  align-items: center;
-}
-.searchIcon {
-  margin: 0px 5px;
-}
-.searchBar {
-  width: 100%;
-  border-style: none;
-  outline: none;
-  font-size: 14px;
-  color: rgb(63, 63, 63);
-}
-
-.buttonContainer {
-  display: flex;
-  align-items: center;
-}
-
-.Container {
-  position: relative;
+.menuIcon {
+  color: gray;
   height: 100%;
+  width: 28px;
+  cursor: pointer;
+  margin-right: 0.5rem;
 }
-
 .dropdownContainer {
   position: absolute;
   display: flex;
@@ -70,30 +55,27 @@
   border: 1px solid rgb(205, 205, 205);
   border-radius: 3px;
 }
-
-.profileContainer {
-  display: flex;
-  align-items: center;
-  width: 193px;
-}
-.defaultPicture {
-  border-radius: 100%;
-  height: 30px;
-  width: auto;
-  margin-right: 10px;
-}
-
-.ProfileDropdowncontainer {
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  top: 100%;
-  background-color: rgb(255, 255, 255);
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-  border: 1px solid rgb(205, 205, 205);
+.searchBarContainer {
+  width: 400px;
+  border: 1px solid rgb(197, 197, 197);
   border-radius: 3px;
-  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+.searchIcon {
+  width: 30px;
+  height: 100%;
+  color: gray;
+  margin: 0px 5px;
+  cursor: pointer;
+}
+.searchBar {
+  width: 100%;
+  padding: 0.5rem;
+  border-style: none;
+  outline: none;
+  font-size: 14px;
+  color: rgb(63, 63, 63);
 }
 
 @media (max-width: 600px) {
@@ -101,7 +83,7 @@
     max-width: 600px;
     justify-content: center;
   }
-  .SearchBarContainer {
+  .earchBarContainer {
     display: none;
   }
 }

@@ -1,7 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import axios from "axios";
-import Header from "../../Components/Header/Header";
+
 import Aside from "../../Components/Aside/Aside";
 import CustomPagination from "../../Components/Pagination/CustomPagination";
 import Footer from "../../Components/Footer/Footer";
@@ -21,16 +20,22 @@ const MainPage = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios({
-      url: "http://ec2-3-34-211-22.ap-northeast-2.compute.amazonaws.com:8080/questions",
-      method: "get",
-      headers: {
-        "ngrok-skip-browser-warning": "skip",
-        value: true,
-      },
-    })
-      .then((response) => setData(response.data))
-      .catch((err) => console.log(err));
+    fetch("/data/dummy.json")
+      .then((res) => res.json())
+      .then((data) => {
+        setData(data);
+        // console.log(data);
+      });
+    // axios({
+    //   url: "http://ec2-3-34-211-22.ap-northeast-2.compute.amazonaws.com:8080/questions",
+    //   method: "get",
+    //   headers: {
+    //     "ngrok-skip-browser-warning": "skip",
+    //     value: true,
+    //   },
+    // })
+    //   .then((response) => setData(response.data))
+    //   .catch((err) => console.log(err));
   }, []);
 
   const handleAskButton = () => {
@@ -43,7 +48,6 @@ const MainPage = () => {
 
   return (
     <div>
-      <Header />
       <div id={style.main}>
         <div id={style.asdie}>
           <Aside />

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import styles from "./Users.module.css";
-import Header from "../../Components/Header/Header";
 import Footer from "../../Components/Footer/Footer";
 import Aside from "../../Components/Aside/Aside";
 import User from "../../Components/User/User";
@@ -29,7 +28,6 @@ const Users = () => {
   return (
     <div className={`${styles.flex_column}`}>
       <div id={styles.field} className={`${styles.flex_column}`}>
-        <Header />
         <div
           className={`${styles.flex_row} ${styles.justify_center} ${styles.flexGrow_1}`}
         >

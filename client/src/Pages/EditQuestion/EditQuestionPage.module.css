@@ -1,76 +1,50 @@
-.Allcontainer{
-    background-color: rgb(234, 234, 234);
-    min-height: 100vh;
-    display: flex; 
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.editQuesContainer {
+  background-color: rgb(234, 234, 234);
+  min-height: 100vh;
+  padding: 2rem;
 }
 
-.contents{
-    margin-bottom: 30px;
+.editQuesWrapper {
+  max-width: 1000px;
+  margin: auto;
 }
 
-#first{
-    margin-top: 70px;
+.editQuesWrapper h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  margin: 3rem 0;
 }
 
-#title{
-    background-color: white;
-    height: auto;
-    width: 1000px;
-    border-color: rgb(193,	196,	197	);
-    border-radius: 3px;
-    border-style: solid;
+#editQuestionForm {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  background-color: white;
+  border-color: rgb(193, 196, 197);
+  border-radius: 3px;
+  padding: 2rem;
 }
-
-.title_div1{
-    font-size: 16px;
-    font-weight: bold;
-    margin: 25px 0px 0px 25px;
+.title {
+  font-weight: bold;
 }
-
-.title_div2{
-    font-size: 13px;
-    margin-left: 25px;
+.subTitle {
+  font-size: 14px;
 }
-
-#title_div3{
-    margin: 5px 0px 25px 25px;
-   
+.fieldBox input {
+  box-sizing: border-box;
+  width: 100%;
+  height: 30px;
+  font-size: 15px;
+  border: 1px solid rgb(187, 191, 196);
+  border-radius: 3px;
+  padding-left: 10px;
+  margin-top: 1rem;
 }
-
-.title_div3_input{
-    width: 940px;
-    height: 30px;
-    font-size: 15px;
-    border: 1px solid rgb(187, 191,196	);
-    border-radius: 3px;
-    padding-left: 10px;
+.fieldBox .contentEditor {
+  margin: 1rem 0;
 }
-
-#problem{
-    background-color: white;
-    height: auto;
-    width: 1000px;
-    border-color: rgb(193,	196,	197	);
-    border-radius: 3px;
-    border-style: solid;
-}
-
-#problem_div1{
-    margin: 5px 25px 25px 25px;
-}
-
-#tags{
-    background-color: white;
-    height: auto;
-    width: 1000px;
-    border-color: rgb(193,	196,	197	);
-    border-radius: 3px;
-    border-style: solid;
-}
-
-#tags_div{
-    margin: 5px 0px 25px 25px;
+.fieldBox input:focus {
+  outline: 4px solid rgb(234, 234, 246);
+  border: 2px solid rgb(107, 162, 217);
 }

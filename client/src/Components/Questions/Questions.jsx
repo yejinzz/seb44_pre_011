@@ -12,7 +12,7 @@ const Questions = ({ questionId, title, content, createdAt, displayName }) => {
       <h3 onClick={ReadQuestios}>{title}</h3>
       <div id={style.text}>{content}</div>
       <div id={style.bottom}>
-        <div id={style.taglist}>
+        <div id={style.tagList}>
           <div className={style.tag}>tag1</div>
           <div className={style.tag}>tag2</div>
           <div className={style.tag}>tag3</div>

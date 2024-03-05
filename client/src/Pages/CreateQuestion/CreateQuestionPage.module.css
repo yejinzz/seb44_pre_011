@@ -1,0 +1,40 @@
+.createQuesContainer {
+  background-color: rgb(234, 234, 234);
+  min-height: 100vh;
+  padding: 2rem;
+}
+.createQuesWrapper {
+  max-width: 1000px;
+  margin: auto;
+}
+.createQuesWrapper h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  margin: 3rem 0;
+}
+.tipsContainer {
+  padding: 3rem 2rem;
+  background-color: rgb(237, 244, 250);
+  /* height: 280px; */
+
+  border-color: rgb(170, 200, 229);
+  border-style: solid;
+  border-radius: 3px;
+}
+
+.tipsContainer h2 {
+  font-size: 22px;
+  margin-bottom: 1rem;
+}
+
+.title {
+  margin-top: 1rem;
+  font-weight: bold;
+}
+
+.tipLists {
+  list-style: disc;
+  margin-left: 1rem;
+  font-size: 15px;
+}
