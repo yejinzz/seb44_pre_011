@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from "react";
 import styles from "./UserProfilePage.module.css";
-import Footer from "../../Components/Footer/Footer";
-import Aside from "../../Components/Aside/Aside";
 import EmailIcon from "@mui/icons-material/Email";
 import EditIcon from "@mui/icons-material/Edit";
 import { Button, Typography } from "@mui/material";
-import Questions from "../../Components/Questions/Questions";
-import CustomPagination from "../../Components/Pagination/CustomPagination";
 import PersonIcon from "@mui/icons-material/Person";
-import { makeList } from "../../Function/wrapperFunction";
+import { makeList } from "../../function/wrapperFunction";
 import { useLocation, useParams } from "react-router-dom";
-import { getList, getQuestions, getUser } from "../../Function/api";
+import { getList, getQuestions, getUser } from "../../function/api";
+import Questions from "../../components/questions/Questions";
+import Aside from "../../components/aside/Aside";
+import CustomPagination from "../../components/pagination/CustomPagination";
+import Footer from "../../components/footer/Footer";
+
 const UserProfilePage = () => {
   const id = sessionStorage.getItem("id");
   const { memberId, displayName } = useParams();

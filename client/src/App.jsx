@@ -1,19 +1,19 @@
 import { Route, Routes, useLocation } from "react-router-dom";
-import MainPage from "./Pages/Main/MainPage";
-import ReadQuestionPage from "./Pages/ReadQuestion/ReadQuestionPage";
-import LoginPage from "./Pages/Login/LoginPage";
-import SignupPage from "./Pages/Signup/SignupPage";
-import UserProfilePage from "./Pages/UserProfile/UserProfilePage";
-import CreateQuestionPage from "./Pages/CreateQuestion/CreateQuestionPage";
+import MainPage from "./pages/main/MainPage";
+import ReadQuestionPage from "./pages/readQuestion/ReadQuestionPage";
+import LoginPage from "./pages/login/LoginPage";
+import SignupPage from "./pages/signup/SignupPage";
+import UserProfilePage from "./pages/userProfile/UserProfilePage";
+import CreateQuestionPage from "./pages/createQuestion/CreateQuestionPage";
 import "./App.module.css";
-import Users from "./Pages/Users/Users";
-import EditQuestionPage from "./Pages/EditQuestion/EditQuestionPage";
-import EditProfile from "./Pages/EditProfile/EditProfile";
+import Users from "./pages/users/Users";
+import EditQuestionPage from "./pages/editQuestion/EditQuestionPage";
+import EditProfile from "./pages/editProfile/EditProfile";
 import { useSetRecoilState } from "recoil";
 import { loginState, userDataState } from "./store/auth";
 import { useEffect } from "react";
 import axios from "axios";
-import Header from "./Components/Header/Header";
+import Header from "./components/header/Header";
 
 function App() {
   const setLoginState = useSetRecoilState(loginState);

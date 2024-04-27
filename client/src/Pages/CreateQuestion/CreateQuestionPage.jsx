@@ -1,5 +1,5 @@
 import style from "./CreateQuestionPage.module.css";
-import CreateQuestionForm from "../../Components/form/CreateQuestionForm";
+import CreateQuestionForm from "../../components/form/CreateQuestionForm";
 
 const CreateQuestionPage = () => {
   return (

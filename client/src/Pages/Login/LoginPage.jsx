@@ -1,5 +1,5 @@
-import OauthButton from "../../Components/Oauth/OauthButton";
-import LoginForm from "../../Components/form/LoginForm";
+import OauthButton from "../../components/oauth/OauthButton";
+import LoginForm from "../../components/form/LoginForm";
 import style from "./LoginPage.module.css";
 import { Link } from "react-router-dom";
 

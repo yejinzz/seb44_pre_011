@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
-import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
+// import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import "./Editor.css";
 
 const Editor = ({ text, setText }) => {
@@ -24,10 +24,10 @@ const Editor = ({ text, setText }) => {
 
   return (
     <div className="editor-container">
-      <CKEditor editor={ClassicEditor} data={text} onBlur={handleBody} />
+      <CKEditor data={text} onBlur={handleBody} />
       <p className="err-msg">{bodyMsg}</p>
     </div>
   );
 };
-
+// editor={ClassicEditor}
 export default Editor;

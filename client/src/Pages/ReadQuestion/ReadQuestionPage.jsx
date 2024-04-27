@@ -2,12 +2,12 @@ import Button from "@mui/material/Button";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import Aside from "../../Components/Aside/Aside";
-import Editor from "../../Components/Editor/Editor";
-import Footer from "../../Components/Footer/Footer";
 import style from "./ReadQuestionPage.module.css";
 import { useRecoilValue } from "recoil";
 import { loginState, userDataState } from "../../store/auth";
+import { Editor } from "ckeditor5/src/core";
+import Aside from "../../components/aside/Aside";
+import Footer from "../../components/footer/Footer";
 
 const Login = () => {
   return (

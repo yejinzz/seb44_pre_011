@@ -1,10 +1,10 @@
 import React from "react";
 import { useState, useEffect } from "react";
 
-import Aside from "../../Components/Aside/Aside";
-import CustomPagination from "../../Components/Pagination/CustomPagination";
-import Footer from "../../Components/Footer/Footer";
-import Questions from "../../Components/Questions/Questions";
+import Aside from "../../components/aside/Aside";
+import CustomPagination from "../../components/pagination/CustomPagination";
+import Footer from "../../components/footer/Footer";
+import Questions from "../../components/questions/Questions";
 import Button from "@mui/material/Button";
 import style from "./MainPage.module.css";
 import { useNavigate } from "react-router-dom";

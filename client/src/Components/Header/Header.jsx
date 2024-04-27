@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import MenuIcon from "@mui/icons-material/Menu";
-import Aside from "../Aside/Aside";
+import Aside from "../aside/Aside";
 import HeaderProfile from "./profile/HeaderProfile";
 
 const Header = ({ pathname }) => {

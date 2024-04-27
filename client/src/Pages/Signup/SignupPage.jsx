@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import Style from "./SignupPage.module.css";
-import OauthButton from "../../Components/Oauth/OauthButton";
-import SignupForm from "../../Components/form/SignupForm";
+import OauthButton from "../../components/oauth/OauthButton";
+import SignupForm from "../../components/form/SignupForm";
 
 const SignupPage = () => {
   return (

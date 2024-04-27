@@ -1,5 +1,5 @@
 import Button from "@mui/material/Button";
-import Editor from "../../Components/Editor/Editor";
+import Editor from "../../components/editor/Editor";
 import axios from "axios";
 import { useRecoilValue } from "recoil";
 import { userDataState } from "../../store/auth";

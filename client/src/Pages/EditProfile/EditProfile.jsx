@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import styles from "./EditProfile.module.css";
-import Aside from "../../Components/Aside/Aside";
-import Footer from "../../Components/Footer/Footer";
+import Aside from "../../components/aside/Aside";
+import Footer from "../../components/footer/Footer";
 import PersonIcon from "@mui/icons-material/Person";
 import EmailIcon from "@mui/icons-material/Email";
 import { Button, Divider, TextField, Typography } from "@mui/material";
-import { editProfile, getUser } from "../../Function/api";
+import { editProfile, getUser } from "../../function/api";
 import { useNavigate } from "react-router-dom";
 
 const EditProfile = () => {

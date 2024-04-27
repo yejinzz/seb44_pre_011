@@ -1,13 +1,17 @@
 import React, { useEffect, useState } from "react";
 import styles from "./Users.module.css";
-import Footer from "../../Components/Footer/Footer";
-import Aside from "../../Components/Aside/Aside";
-import User from "../../Components/User/User";
-import CustomPagination from "../../Components/Pagination/CustomPagination";
-import { makeList } from "../../Function/wrapperFunction";
+// import Footer from "../../Components/Footer/Footer";
+// import Aside from "../../Components/Aside/Aside";
+// import User from "../../Components/User/User";
+// import CustomPagination from "../../Components/Pagination/CustomPagination";
+import { makeList } from "../../function/wrapperFunction";
 import { Typography } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
-import { getUsers } from "../../Function/api";
+import { getUsers } from "../../function/api";
+import User from "../../components/user/User";
+import Aside from "../../components/aside/Aside";
+import CustomPagination from "../../components/pagination/CustomPagination";
+import Footer from "../../components/footer/Footer";
 const Users = () => {
   const [userList, setUserList] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
