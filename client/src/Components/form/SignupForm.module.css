@@ -4,34 +4,14 @@
   flex-direction: column;
   gap: 2rem;
   background-color: #fff;
-  width: 300px;
+  /* width: 300px; */
   padding: 2rem;
   border-radius: 10px;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.086), 0 3px 10px rgba(0, 0, 0, 0.068);
   margin: 2rem 0;
 }
-.title {
-  display: flex;
-  flex-direction: column;
-  font-weight: bold;
-}
-.fieldBox input {
-  box-sizing: border-box;
-  font-size: 14px;
-  border: 1px solid rgb(180, 180, 180);
-  border-radius: 5px;
-  height: 35px;
-  width: 100%;
-}
 
 .note {
   font-size: 13px;
   line-height: 1.2rem;
-}
-
-.errMsg {
-  font-size: 13px;
-  font-weight: 400;
-  color: #d95050;
-  margin-top: 5px;
 }
