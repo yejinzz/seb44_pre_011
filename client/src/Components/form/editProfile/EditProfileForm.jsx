@@ -60,7 +60,7 @@ const EditProfileForm = ({ userInfo }) => {
         label="Display Name"
         type="text"
         name="displayName"
-        inputRef={inputRef}
+        inputRef={(el) => (inputRef.current[0] = el)}
         onChange={handleValue}
         value={userInfo.displayName}
       />
@@ -68,7 +68,7 @@ const EditProfileForm = ({ userInfo }) => {
         label="Email"
         type="email"
         name="email"
-        inputRef={inputRef}
+        inputRef={(el) => (inputRef.current[1] = el)}
         onChange={handleValue}
         defaultValue={userInfo.email}
       />
