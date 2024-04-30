@@ -1,0 +1,12 @@
+.loginNotice {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.loginNotice p {
+  background-color: rgb(245, 245, 245);
+  padding: 1rem;
+  margin-bottom: 1rem;
+  color: rgb(90, 90, 90);
+}

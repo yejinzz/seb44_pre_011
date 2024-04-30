@@ -8,21 +8,26 @@ const Questions = ({ questionId, title, content, createdAt, displayName }) => {
     navigate(`/questions/read?id=${questionId}`);
   };
   return (
-    <div id={style.container}>
+    <div className={style.ques__card}>
       <h3 onClick={ReadQuestios}>{title}</h3>
-      <div id={style.text}>{content}</div>
-      <div id={style.bottom}>
-        <div id={style.tagList}>
-          <div className={style.tag}>tag1</div>
-          <div className={style.tag}>tag2</div>
-          <div className={style.tag}>tag3</div>
-        </div>
-        <div id={style.userInfo}>
+      <div className={style.ques__content}>{content}</div>
+
+      <div className={style.ques__bottom}>
+        <ul className={style.ques__tagList}>
+          {["tag1", "tag2", "tag3"].map((tag) => (
+            <li className={style.tag}>{tag}</li>
+          ))}
+        </ul>
+
+        <div className={style.ques__userInfo}>
           <img
             src={process.env.PUBLIC_URL + "/img/test_img.jpg"}
             alt={questionId}
           />
-          {displayName} {createdAt.slice(0, 10)} at {createdAt.slice(11, 16)}
+          <strong>{displayName}</strong>
+          <span>
+            {createdAt.slice(0, 10)} at {createdAt.slice(11, 16)}
+          </span>
         </div>
       </div>
     </div>

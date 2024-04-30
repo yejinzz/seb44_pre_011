@@ -1,20 +1,21 @@
-#headerContainer {
+header {
   position: sticky;
   top: 0;
   border-top: 4px solid rgb(255, 140, 0);
   background: rgb(255, 255, 255);
   border-bottom: 1px solid rgb(205, 205, 205);
-  width: 100%;
+  width: 100vw;
   color: rgb(63, 63, 63);
   z-index: 2;
 }
 .headerWrapper {
   position: relative;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  max-width: 1000px;
-  height: 65px;
+  gap: 1rem;
+  padding: 0.8rem 2rem;
+  max-width: 1200px;
   margin: auto;
 }
 .leftContainer {
@@ -23,7 +24,18 @@
   align-items: center;
   /* gap: 1rem; */
 }
+.navList {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2.5rem;
+  font-size: 0.875rem;
+}
+.navList li {
+  white-space: nowrap;
+}
 .rightContainer {
+  flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -32,7 +44,8 @@
 .logo {
   display: flex;
   width: 150px;
-  height: 30px;
+  /* height: 30px; */
+  margin-bottom: 0.5rem;
   background-color: white;
   cursor: pointer;
 }
@@ -41,7 +54,7 @@
   height: 100%;
   width: 28px;
   cursor: pointer;
-  margin-right: 0.5rem;
+  margin-right: 1rem;
 }
 .dropdownContainer {
   position: absolute;
@@ -51,36 +64,24 @@
   top: 100%;
   left: 0;
   background-color: rgb(255, 255, 255);
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
   border: 1px solid rgb(205, 205, 205);
   border-radius: 3px;
 }
-.searchBarContainer {
-  width: 400px;
-  border: 1px solid rgb(197, 197, 197);
-  border-radius: 3px;
+
+.buttonContainer {
   display: flex;
   align-items: center;
+  gap: 0.5rem;
 }
-.searchIcon {
-  width: 30px;
-  height: 100%;
-  color: gray;
-  margin: 0px 5px;
-  cursor: pointer;
-}
-.searchBar {
-  width: 100%;
-  padding: 0.5rem;
-  border-style: none;
-  outline: none;
-  font-size: 14px;
-  color: rgb(63, 63, 63);
+.buttonContainer a button {
+  flex: 1;
+  white-space: nowrap;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .headerContainer {
-    max-width: 600px;
+    max-width: 768px;
     justify-content: center;
   }
   .earchBarContainer {

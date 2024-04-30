@@ -10,10 +10,13 @@ import Users from "./pages/users/Users";
 import EditQuestionPage from "./pages/editQuestion/EditQuestionPage";
 import EditProfile from "./pages/editProfile/EditProfile";
 import { useSetRecoilState } from "recoil";
-import { loginState, userDataState } from "./store/auth";
+import { loginState, userDataState } from "./store/atom/authState";
 import { useEffect } from "react";
 import axios from "axios";
 import Header from "./components/header/Header";
+import Footer from "./components/footer/Footer";
+import Tags from "./pages/tags/Tags";
+import { instance } from "./function/api";
 
 function App() {
   const setLoginState = useSetRecoilState(loginState);
@@ -26,11 +29,10 @@ function App() {
     if (token) {
       setLoginState(true);
 
-      axios
-        .get(
-          `http://ec2-3-34-211-22.ap-northeast-2.compute.amazonaws.com:8080/members/${memberId}`,
-          { headers: { authorization: `Bearer ${token}` } }
-        )
+      instance
+        .get(`/members/${memberId}`, {
+          headers: { authorization: `Bearer ${token}` },
+        })
         .then((res) => {
           if (res.status === 200) {
             setUserDataState({
@@ -56,6 +58,7 @@ function App() {
         <Route element={<LoginPage />} path="/login" />
         <Route element={<SignupPage />} path="/signup" />
         <Route element={<ReadQuestionPage />} path="/questions/read" />
+        <Route element={<Tags />} path="/tags" />
         <Route element={<Users />} path="/users" />
         <Route
           element={<UserProfilePage />}
@@ -65,6 +68,7 @@ function App() {
         <Route element={<CreateQuestionPage />} path="/questions/ask" />
         <Route element={<EditQuestionPage />} path="/questions/edit" />
       </Routes>
+      {pathname !== "/login" && pathname !== "/signup" && <Footer />}
     </>
   );
 }

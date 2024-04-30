@@ -1,0 +1,30 @@
+.profile__box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 1rem;
+  /* border: 1px solid #ccc; */
+  /* border-radius: 10px; */
+}
+.profile__wrap {
+  display: flex;
+  align-items: center;
+}
+.profile__userInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.profile__userInfo span {
+  display: flex;
+  align-items: center;
+}
+
+.profile__box button {
+  display: flex;
+  align-items: center;
+}
+.profile__box button svg {
+  width: 20px;
+}

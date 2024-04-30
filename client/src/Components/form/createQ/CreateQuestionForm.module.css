@@ -1,0 +1,9 @@
+#questionForm {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  background-color: white;
+  border-color: rgb(193, 196, 197);
+  border-radius: 3px;
+  padding: 2rem;
+}

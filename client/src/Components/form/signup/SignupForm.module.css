@@ -1,0 +1,17 @@
+/* sign up form */
+.signupForm {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 5px;
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
+  margin: 2rem 0;
+  width: 300px;
+}
+
+.note {
+  font-size: 13px;
+  line-height: 1.2rem;
+}

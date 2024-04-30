@@ -1,263 +1,106 @@
-import Button from "@mui/material/Button";
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import { Link } from "react-router-dom";
 import style from "./ReadQuestionPage.module.css";
+import Aside from "../../components/navigation/Navigation";
+import Button from "../../components/button/Button";
+import SidePanel from "../../components/sidePanel/SidePanel";
+import AnswerCard from "../../components/answer/answerCard/AnswerCard";
+import AnswerEditor from "../../components/answer/answerEditor/AnswerEditor";
 import { useRecoilValue } from "recoil";
-import { loginState, userDataState } from "../../store/auth";
-import { Editor } from "ckeditor5/src/core";
-import Aside from "../../components/aside/Aside";
-import Footer from "../../components/footer/Footer";
-
-const Login = () => {
-  return (
-    <>
-      <div id={style.login}>
-        To answer a question, you must either sign up for an account
-      </div>
-      <div className={style.buttonContainer}>
-        <span>
-          <Link to="/login">
-            <Button
-              variant="contained"
-              sx={{
-                fontSize: 20,
-                width: "200px",
-                height: "50px",
-                marginTop: "10px",
-                backgroundColor: "#e3ecf3",
-                color: "#1976D2",
-                ":hover": {
-                  color: "#e3ecf3",
-                },
-              }}
-            >
-              Login
-            </Button>
-          </Link>
-          <Link to="/signup">
-            <Button
-              variant="contained"
-              sx={{
-                fontSize: 20,
-                width: "200px",
-                height: "50px",
-                marginTop: "10px",
-                marginLeft: "10px",
-              }}
-            >
-              Sign Up
-            </Button>
-          </Link>
-        </span>
-      </div>
-    </>
-  );
-};
-
-const Answer = ({ userdata }) => {
-  const [text, setText] = useState("");
-
-  const Submit = () => {
-    console.log(text);
-    if (text.length > 20) {
-      axios({
-        url: "http://ec2-3-34-211-22.ap-northeast-2.compute.amazonaws.com:8080/answers",
-        method: "post",
-        data: {
-          memberId: userdata.memberId,
-          questionId: document.location.search.slice(4),
-          content: text,
-        },
-      })
-        .then((res) => {
-          console.log(res);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-      setText("");
-      window.location.reload();
-    }
-  };
-  return (
-    <div id={style.answer}>
-      <span id={style.answertitle}>Your Answer</span>
-      <Editor text={text} setText={setText} />
-      <Link to={`/questions/read?id=${document.location.search.slice(4)}`}>
-        <Button
-          variant="contained"
-          sx={{
-            fontSize: 12,
-            width: "165px",
-            height: "40px",
-            marginTop: "20px",
-          }}
-          onClick={Submit}
-        >
-          Post Your Answer
-        </Button>
-      </Link>
-    </div>
-  );
-};
+import { userDataState } from "../../store/atom/authState";
+import { getAnswer, getquestion } from "../../function/api";
 
 const ReadQuestionPage = () => {
-  const userdata = useRecoilValue(userDataState);
-  const isLogin = useRecoilValue(loginState);
+  const userInfo = useRecoilValue(userDataState);
   const [data, setData] = useState({ createdAt: "00000000000" });
-  const [answer, setAnswer] = useState([]);
-  const [answertext, setAnswertext] = useState("");
-  const [answerid, setAnswerid] = useState();
+  const [answers, setAnswers] = useState([]);
 
-  const EditAnswer = (answerid, text) => {
-    setAnswertext(text);
-    setAnswerid(answerid);
-  };
-
-  const EditSubmit = (answerid, answertext) => {
-    axios({
-      url: `http://ec2-3-34-211-22.ap-northeast-2.compute.amazonaws.com:8080/answers/${answerid}`,
-      method: "PATCH",
-      headers: {
-        "ngrok-skip-browser-warning": "skip",
-        value: true,
-      },
-      data: {
-        content: answertext,
-      },
-    })
-      .then((response) => setData(response.data.data))
-      .catch((err) => console.log(err));
-    setAnswertext("");
-    setAnswerid();
-    window.location.reload();
-  };
+  const questionId = new URLSearchParams(window.location.search).get("id");
 
   useEffect(() => {
-    axios({
-      url: `http://ec2-3-34-211-22.ap-northeast-2.compute.amazonaws.com:8080/questions/
-      ${document.location.search.slice(4)}`,
-      method: "get",
-      headers: {
-        "ngrok-skip-browser-warning": "skip",
-        value: true,
-      },
-    })
+    // fetch("/data/question.json")
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     const foundItem = data.find(
+    //       (item) => item.questionId === Number(questionId)
+    //     );
+    //     setData(foundItem);
+    //   });
+
+    getquestion(questionId)
       .then((response) => setData(response.data.data))
       .catch((err) => console.log(err));
 
-    axios({
-      url: `http://ec2-3-34-211-22.ap-northeast-2.compute.amazonaws.com:8080/answers/question/
-      ${document.location.search.slice(4)}`,
-      method: "get",
-      headers: {
-        "ngrok-skip-browser-warning": "skip",
-        value: true,
-      },
-    })
-      .then((response) => setAnswer(response.data))
+    // fetch("/data/answer.json")
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     const foundItemsArray = [];
+    //     const foundItems = data.filter(
+    //       (item) => item.questionId === Number(questionId)
+    //     );
+    //     foundItemsArray.push(...foundItems);
+
+    //     setAnswers(foundItemsArray);
+    //   });
+
+    getAnswer(questionId)
+      .then((response) => setAnswers(response.data))
       .catch((err) => console.log(err));
   }, []);
 
   return (
-    <div>
-      <div id={style.main}>
-        <div id={style.asdie}>
-          <Aside />
-        </div>
-        <div id={style.question}>
-          <div id={style.title}>
-            <h1 id={style.h1}>
-              {data.title}
-              <Link to="/questions/ask">
-                <Button
-                  variant="contained"
-                  sx={{
-                    fontSize: 13,
-                    width: "140px",
-                    height: "50px",
-                    marginTop: "10px",
-                    marginLeft: "10px",
-                    float: "right",
-                  }}
-                >
-                  Ask Question
-                </Button>
-              </Link>
-            </h1>
+    <main className={style.readQ__container}>
+      <Aside />
+      <section className={style.readQ__section}>
+        <div className={style.question__title}>
+          <div>
+            <h1>{data.title}</h1>
+
+            <Link to="/questions/ask">
+              <Button>Ask Question</Button>
+            </Link>
+          </div>
+          <p>
             Asked {data.createdAt.slice(0, 10)} at{" "}
             {data.createdAt.slice(11, 16)}
-          </div>
-          <div id={style.contents}>
-            <div>
-              {data.content}
-              <div id={style.taglist}>
-                <div className={style.tag}>tag1</div>
-                <div className={style.tag}>tag2</div>
-                <div className={style.tag}>tag3</div>
-              </div>
-            </div>
-            <div id={style.Answer}>Answer</div>
-
-            {answer.map((obj) => (
-              <div id={style.AnswerText}>
-                {answerid === obj.answerId ? (
-                  <div>
-                    <Editor text={answertext} setText={setAnswertext} />
-                    <Link
-                      to={`/questions/read?id=${document.location.search.slice(
-                        4
-                      )}`}
-                    >
-                      <Button
-                        variant="contained"
-                        sx={{
-                          fontSize: 12,
-                          width: "165px",
-                          height: "40px",
-                          marginTop: "20px",
-                        }}
-                        onClick={() => EditSubmit(obj.answerId, answertext)}
-                      >
-                        Edit Your Answer
-                      </Button>
-                    </Link>
-                  </div>
-                ) : (
-                  <div dangerouslySetInnerHTML={{ __html: obj.content }}></div>
-                )}
-                <div id={style.AnswerFooter}>
-                  <button
-                    id={style.EditButton}
-                    onClick={
-                      userdata.memberId === obj.memberId
-                        ? () => EditAnswer(obj.answerId, obj.content)
-                        : undefined
-                    }
-                  >
-                    {answerid ? "" : "Edit"}
-                  </button>
-                  <div id={style.answerUserInfo}>
-                    <img
-                      src={process.env.PUBLIC_URL + "/img/test_img.jpg"}
-                      alt="img"
-                    />
-                    {obj.displayName}
-                  </div>
-                </div>
-              </div>
-            ))}
-
-            {isLogin ? <Answer userdata={userdata} /> : <Login />}
-          </div>
+          </p>
         </div>
-      </div>
+        <div className={style.inner__container}>
+          <div className={style.contents__wrap}>
+            <article className={style.Content}>
+              {userInfo.memberId === data.memberId && (
+                <Link to={`/questions/edit?id=${questionId}`}>
+                  <button>edit</button>
+                </Link>
+              )}
 
-      <div id={style.footer}>
-        <Footer />
-      </div>
-    </div>
+              <div>{data.content}</div>
+
+              <ul id={style.taglist}>
+                {["tag1", "tag2", "tag3"].map((el) => (
+                  <li className={style.tag}>{el}</li>
+                ))}
+              </ul>
+            </article>
+            <article className={style.Answer}>
+              <h1 className={style.answer__title}>Answer</h1>
+
+              {answers.map((answer) => (
+                <AnswerCard
+                  questionId={questionId}
+                  answer={answer}
+                  setData={setData}
+                />
+              ))}
+            </article>
+            <div className={style.AnswerEditor}>
+              <AnswerEditor />
+            </div>
+          </div>
+          <SidePanel />
+        </div>
+      </section>
+    </main>
   );
 };
 

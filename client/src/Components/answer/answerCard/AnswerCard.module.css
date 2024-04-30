@@ -1,0 +1,36 @@
+.answerCard {
+  margin-top: 20px;
+  padding: 1rem;
+  border-bottom: 1px solid #ccc;
+}
+
+/* answer card content */
+.answerContent {
+  width: 700px;
+  white-space: pre-line;
+  line-height: 20px;
+}
+
+/* answer card bottom */
+.answerBottom {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.editButton {
+  color: #818181;
+}
+.editButton:hover {
+  color: #494949;
+}
+
+.userCard {
+  display: flex;
+  align-items: center;
+}
+.userCard img {
+  width: 30px;
+  height: 30px;
+}

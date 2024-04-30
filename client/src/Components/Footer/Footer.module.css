@@ -1,4 +1,6 @@
 #footerContainer {
+  /* position: absolute; */
+  /* height: 10rem; */
   display: flex;
   justify-content: center;
   width: 100vw;
@@ -20,7 +22,7 @@
   color: #babfc4;
   font-size: 15px;
 }
-ul {
+.footerBtns ul {
   margin-top: 12px;
   list-style-type: none;
 }

@@ -1,77 +1,80 @@
 import React, { useEffect, useState } from "react";
-import styles from "./Users.module.css";
-// import Footer from "../../Components/Footer/Footer";
-// import Aside from "../../Components/Aside/Aside";
-// import User from "../../Components/User/User";
-// import CustomPagination from "../../Components/Pagination/CustomPagination";
+import style from "./Users.module.css";
 import { makeList } from "../../function/wrapperFunction";
-import { Typography } from "@mui/material";
-import SearchIcon from "@mui/icons-material/Search";
 import { getUsers } from "../../function/api";
-import User from "../../components/user/User";
-import Aside from "../../components/aside/Aside";
+import Aside from "../../components/navigation/Navigation";
 import CustomPagination from "../../components/pagination/CustomPagination";
-import Footer from "../../components/footer/Footer";
+import { Link, useNavigate } from "react-router-dom";
+import UserCard from "../../components/user/UserCard";
+import SearchBar from "../../components/searchBar/SearchBar";
+import axios from "axios";
+
 const Users = () => {
+  const navigation = useNavigate();
   const [userList, setUserList] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const users = makeList(userList, currentPage, 20).map((user, idx) => (
-    <User key={`user_${idx}`} user={user} />
-  ));
+
   useEffect(() => {
-    (async () => {
-      try {
-        await getUsers().then((res) => {
-          setUserList(res.data);
-        });
-      } catch (error) {
-        console.error(error);
-      }
-    })();
+    getUsers().then((res) => {
+      setUserList(res.data);
+    });
+
+    axios
+      .get(
+        `${process.env.REACT_APP_STACK_EXCHANGE}/users?pagesize=100&order=desc&sort=reputation&site=stackoverflow`
+      )
+      .then((res) => {
+        setUserList(res.data.items);
+      });
   }, []);
+
   return (
-    <div className={`${styles.flex_column}`}>
-      <div id={styles.field} className={`${styles.flex_column}`}>
-        <div
-          className={`${styles.flex_row} ${styles.justify_center} ${styles.flexGrow_1}`}
-        >
-          <div id={`${styles.aside}`}>
-            <Aside />
-          </div>
-          <div id={styles.content} className={`${styles.flex_column}`}>
-            <div className={`${styles.flex_column} ${styles.flexGrow_1}`}>
-              <Typography sx={{ fontSize: "30px" }}>Users</Typography>
-              <span
-                id={styles.SearchBarContainer}
-                className={`${styles.flex_row} ${styles.alignItems_center} ${styles.margin_top_16}`}
-              >
-                <SearchIcon
-                  id={styles.searchIcon}
-                  sx={{ width: "30px", height: "100%" }}
-                />
-                <input
-                  className={styles.searchBar}
-                  placeholder="Filter by user"
-                  type="text"
-                />
-              </span>
-              <div id={styles.userList} className={`${styles.flex_row}`}>
-                {users}
-              </div>
-            </div>
-            <div id={styles.pagination} className={`${styles.flex_row}`}>
-              <CustomPagination
-                array={userList}
-                currentPage={currentPage}
-                setCurrentPage={setCurrentPage}
-                pageSize={20}
-              />
+    <main className={style.users__container}>
+      <Aside />
+      <section className={style.users__section}>
+        <div>
+          <div className={style.users__head}>
+            <h1>Users</h1>
+            <div className={style.users__searchbar}>
+              <SearchBar />
             </div>
           </div>
+          <ul className={style.user__list}>
+            {makeList(userList, currentPage, 30).map((user, idx) => (
+              <li>
+                {user.link ? (
+                  <a href={user.link} target="_block">
+                    <UserCard key={`user_${idx}`} user={user} />
+                  </a>
+                ) : (
+                  <Link
+                    to={`/users/${user.memberId}/${user.displayName}?tab=questions`}
+                  >
+                    <UserCard
+                      key={`user_${idx}`}
+                      user={user}
+                      onClick={() =>
+                        navigation(
+                          `/users/${user.memberId}/${user.displayName}?tab=questions`
+                        )
+                      }
+                    />
+                  </Link>
+                )}
+              </li>
+            ))}
+          </ul>
         </div>
-      </div>
-      <Footer />
-    </div>
+        <div className={style.user__pagination}>
+          <CustomPagination
+            array={userList}
+            currentPage={currentPage}
+            setCurrentPage={setCurrentPage}
+            pageSize={30}
+          />
+        </div>
+      </section>
+    </main>
   );
 };
 

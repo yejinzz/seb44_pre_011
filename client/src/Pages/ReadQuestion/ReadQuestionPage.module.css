@@ -1,111 +1,59 @@
-#mainpage {
-  display: column;
-  flex-direction: row;
-  justify-content: center;
-  align-items: flex-start;
-}
-
-#main {
+.readQ__container {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
 }
-
-#asdie {
-  position: sticky;
-  top: 69px;
-  clear: both;
-  overflow: visible;
-  min-height: 55vh;
-}
-
-#question {
-  width: 51.5%;
-}
-
-#title {
-  padding: 20px 0 20px 20px;
-  border-left: 1px solid #ccc;
-  border-bottom: 1px solid #ccc;
-}
-
-#h1 {
-  font-weight: lighter;
-  margin-bottom: 10px;
-}
-
-#contents {
-  padding: 20px;
-  border-left: 1px solid #ccc;
-}
-
-#login {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 10px;
-  background-color: #c22e32;
-  color: white;
-  font-weight: bold;
-}
-
-#answer {
+.readQ__section {
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  margin-top: 20px;
+  border-left: 1px solid #e9e9e9;
+  padding: 2rem;
 }
 
-#answertitle {
-  font-size: 25px;
-  margin: 20px 0;
-}
-
-#Answer {
-  font-size: 25px;
-  margin-top: 20px;
-}
-
-#AnswerText {
-  margin-top: 20px;
-  padding-bottom: 20px;
-  border-bottom: 1px solid #ccc;
-}
-
-#AnswerFooter {
+.inner__container {
   display: flex;
-  flex-direction: row;
+}
+.inner__container aside {
+  margin-left: 2rem;
+  margin-top: 1rem;
+}
+
+.contents__wrap {
+  flex: 1;
+}
+.Content {
+  padding: 1rem;
+  white-space: pre-line;
+  line-height: 20px;
+}
+.question__title {
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #e9e9e9;
+}
+.question__title > div {
+  display: flex;
   justify-content: space-between;
-  margin-top: 10px;
-}
-
-.buttonContainer {
-  margin-top: 70px;
-  margin-bottom: 130px;
-}
-
-#EditButton {
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
-}
-
-#answerUserInfo {
-  display: flex;
   align-items: center;
 }
 
-#textarea {
-  width: 70%;
-  height: 300px;
-  margin-top: 20px;
+.question__title > p {
+  font-size: 0.875rem;
+  color: #494949;
 }
 
+.question__title > div > h1 {
+  font-weight: 600;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+/* tag */
 #taglist {
   display: flex;
   flex-direction: row;
   margin-top: 10px;
 }
-
 .tag {
   background-color: #e1ecf4;
   color: #39739d;
@@ -114,6 +62,16 @@
   margin-right: 10px;
 }
 
-#footer {
-  overflow-x: hidden;
+/* answer */
+.Answer {
+  padding: 2rem 0;
+}
+.answer__title {
+  font-weight: 600;
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+
+.AnswerEditor {
+  width: 740px;
 }

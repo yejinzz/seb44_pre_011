@@ -1,0 +1,27 @@
+.sidePanel {
+  background-color: rgb(250, 245, 230);
+  border: 1px solid rgb(241, 229, 188);
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px, rgba(0, 0, 0, 0.05) 0px 1px 4px,
+    rgba(0, 0, 0, 0.05) 0px 2px 8px;
+  min-width: 270px;
+  max-height: 300px;
+}
+.sidePanel div h2 {
+  font-size: 0.875rem;
+  font-weight: 600;
+  background-color: rgb(255, 242, 204);
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid rgb(241, 229, 188);
+  /* border-top: 1px solid rgb(241, 229, 188); */
+}
+
+.sidePanel div:nth-child(2) h2 {
+  border-top: 1px solid rgb(241, 229, 188);
+}
+
+.sidePanel ul {
+  list-style: inside;
+  line-height: 20px;
+  font-size: 0.7rem;
+  padding: 0.5rem 1rem;
+}

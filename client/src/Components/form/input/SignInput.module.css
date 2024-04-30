@@ -1,0 +1,18 @@
+.title {
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+}
+.fieldBox input {
+  font-size: 14px;
+  border: 1px solid rgb(180, 180, 180);
+  border-radius: 5px;
+  height: 35px;
+  width: 100%;
+}
+.errMsg {
+  font-size: 13px;
+  font-weight: 400;
+  color: #d95050;
+  margin-top: 5px;
+}

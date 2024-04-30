@@ -24,11 +24,6 @@
   text-decoration: none;
 }
 
-.buttonContainer {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-.buttonContainer a button {
+.displayName {
   white-space: nowrap;
 }

@@ -1,53 +1,69 @@
-import Style from "./Header.module.css";
+import style from "./Header.module.css";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import SearchIcon from "@mui/icons-material/Search";
 import MenuIcon from "@mui/icons-material/Menu";
-import Aside from "../aside/Aside";
+import Aside from "../navigation/Navigation";
 import HeaderProfile from "./profile/HeaderProfile";
+import { useRecoilValue } from "recoil";
+import { loginState } from "../../store/atom/authState";
+import Button from "../button/Button";
+import SearchBar from "../searchBar/SearchBar";
 
 const Header = ({ pathname }) => {
   const [menuView, setMenuView] = useState(false);
+  const navArr = ["About", "Products", "For Teams"];
 
+  const isLogin = useRecoilValue(loginState);
   const toggleDropdown = () => {
     setMenuView(!menuView);
   };
 
   return (
-    <header id={Style.headerContainer}>
-      <div className={Style.headerWrapper}>
-        <div className={Style.leftContainer}>
+    <header>
+      <nav className={style.headerWrapper}>
+        <div className={style.leftContainer}>
           {(pathname === "/login" || pathname === "/signup") && (
             <>
-              <MenuIcon className={Style.menuIcon} onClick={toggleDropdown} />
-
-              <div className={Style.dropdownContainer}>
-                {menuView && <Aside className={Style.dropdown} />}
+              <MenuIcon className={style.menuIcon} onClick={toggleDropdown} />
+              <div className={style.dropdownContainer}>
+                {menuView && <Aside className={style.dropdown} />}
               </div>
             </>
           )}
 
           <Link to="/">
             <img
-              className={Style.logo}
+              className={style.logo}
               src={`${process.env.PUBLIC_URL}/img/logo-stackoverflow.png`}
               alt="logo"
             ></img>
           </Link>
         </div>
 
-        <div className={Style.rightContainer}>
-          <div className={Style.searchBarContainer}>
-            <SearchIcon className={Style.searchIcon} />
-            <input
-              className={Style.searchBar}
-              placeholder="Search..."
-              type="text"
-            />
-          </div>
-          <HeaderProfile />
+        <ul className={style.navList}>
+          {navArr.map((nav, idx) => (
+            <li key={idx}>
+              <Link to="/">{nav}</Link>
+            </li>
+          ))}
+        </ul>
+
+        <div className={style.rightContainer}>
+          <SearchBar />
+          {isLogin ? (
+            <HeaderProfile />
+          ) : (
+            <div className={style.buttonContainer}>
+              <Link to="/login">
+                <Button btnType="other">Log In</Button>
+              </Link>
+              <Link to="/signup">
+                <Button>Sign Up</Button>
+              </Link>
+            </div>
+          )}
         </div>
-      </div>
+      </nav>
     </header>
   );
 };

@@ -1,0 +1,53 @@
+.tag__container {
+  display: flex;
+  min-height: 100vh;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.tag__section {
+  padding: 2rem 0;
+  padding-left: 2rem;
+  line-height: 15px;
+}
+.tag__head a p {
+  margin: 1rem 0;
+  color: rgb(57, 115, 157);
+}
+.tag__head h1 {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+}
+
+.tag__head p {
+  font-size: 0.875rem;
+}
+.tag__pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.tag__section ul {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1rem;
+}
+.tag__card {
+  padding: 1rem;
+  border: 1px solid rgb(208, 208, 208);
+}
+
+.tag__card span {
+  padding: 4.8px 6px;
+  border: none;
+  color: rgb(57, 115, 157);
+  background-color: rgb(225, 236, 244);
+  border-radius: 5px;
+  font-size: 0.9rem;
+}
+
+.tag__card p {
+  font-size: 0.875rem;
+  color: rgb(107, 107, 107);
+  margin-top: 1.5rem;
+}

@@ -2,9 +2,9 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import Style from "./ProfileDropdown.module.css";
 import { useSetRecoilState } from "recoil";
-import { loginState } from "../../../store/auth";
+import { loginState } from "../../../store/atom/authState";
 import { useRecoilValue } from "recoil";
-import { userDataState } from "../../../store/auth";
+import { userDataState } from "../../../store/atom/authState";
 
 const ProfileDropdown = () => {
   const setLoginState = useSetRecoilState(loginState);

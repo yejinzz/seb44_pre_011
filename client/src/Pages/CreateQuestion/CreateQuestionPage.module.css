@@ -1,40 +1,45 @@
-.createQuesContainer {
-  background-color: rgb(234, 234, 234);
+.createQ__container {
   min-height: 100vh;
   padding: 2rem;
 }
-.createQuesWrapper {
+
+.createQ__section {
   max-width: 1000px;
-  margin: auto;
+  margin: 0 auto;
 }
-.createQuesWrapper h1 {
-  font-size: 2rem;
+.createQ__title {
+  display: flex;
+  align-items: center;
+  height: 120px;
+  background-image: url("../../assets/createQBg.svg");
+  background-repeat: no-repeat;
+  background-position: right bottom;
+  margin-bottom: 2rem;
+}
+.createQ__title h1 {
+  font-size: 1.5rem;
   font-weight: bold;
-  text-align: center;
-  margin: 3rem 0;
 }
 .tipsContainer {
-  padding: 3rem 2rem;
+  padding: 2rem;
   background-color: rgb(237, 244, 250);
-  /* height: 280px; */
+  border: 1px solid rgb(170, 200, 229);
+  border-radius: 10px;
+  line-height: 20px;
+}
 
-  border-color: rgb(170, 200, 229);
-  border-style: solid;
-  border-radius: 3px;
+.tipsContainer ul {
+  list-style: inside;
+  font-size: 0.875rem;
 }
 
 .tipsContainer h2 {
-  font-size: 22px;
+  font-size: 1.4rem;
   margin-bottom: 1rem;
 }
 
-.title {
+.tipsContainer h3 {
   margin-top: 1rem;
   font-weight: bold;
-}
-
-.tipLists {
-  list-style: disc;
-  margin-left: 1rem;
-  font-size: 15px;
+  margin-bottom: 0.5rem;
 }

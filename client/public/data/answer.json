@@ -1,0 +1,37 @@
+[
+  {
+    "displayName": "김댕댕",
+    "memberId": 2,
+    "questionId": 1,
+    "answerId": 1,
+    "content": "<p>You can add events to objects when you create them. If you are adding the same events to multiple objects at different times, creating a named function might be the way to go.</p><div data-language=\"text\" class=\"toastui-editor-ww-code-block\"><pre><code>var mouseOverHandler = function() {\n    // Do stuff\n};\nvar mouseOutHandler = function () {\n    // Do stuff\n};\n\n$(function() {\n    // On the document load, apply to existing elements\n    $('select').hover(mouseOverHandler, mouseOutHandler);\n});\n\n// This next part would be in the callback from your Ajax call\n$('<select></select>')\n    .append( /* Your <option>s */ )\n    .hover(mouseOverHandler, mouseOutHandler)\n    .appendTo( /* Wherever you need the select box */ )\n;</code></pre></div>",
+    "createdAt": "2023-06-26T15:24:17",
+    "modifiedAt": "2023-06-26T15:24:17"
+  },
+  {
+    "displayName": "키키",
+    "memberId": 3,
+    "questionId": 1,
+    "answerId": 2,
+    "content": "You could simply wrap your event binding call up into a function and then invoke it twice: once on document ready and once after your event that adds the new DOM elements. If you do that you'll want to avoid binding the same event twice on the existing elements so you'll need either unbind the existing events or (better) only bind to the DOM elements that are newly created.",
+    "createdAt": "2023-06-26T15:24:17",
+    "modifiedAt": "2023-06-26T15:24:17"
+  },
+  {
+    "displayName": "예진",
+    "memberId": 1,
+    "questionId": 2,
+    "answerId": 1,
+    "content": "You could simply wrap your event binding call up into a function and then invoke it twice: once on document ready and once after your event that adds the new DOM elements. If you do that you'll want to avoid binding the same event twice on the existing elements so you'll need either unbind the existing events or (better) only bind to the DOM elements that are newly created.",
+    "createdAt": "2023-06-26T15:24:17"
+  },
+  {
+    "displayName": "김댕댕",
+    "memberId": 2,
+    "questionId": 3,
+    "answerId": 1,
+    "content": "You could simply wrap your event binding call up into a function and then invoke it twice: once on document ready and once after your event that adds the new DOM elements. If you do that you'll want to avoid binding the same event twice on the existing elements so you'll need either unbind the existing events or (better) only bind to the DOM elements that are newly created.",
+    "createdAt": "2023-06-26T15:24:17",
+    "modifiedAt": "2023-06-26T15:24:17"
+  }
+]

@@ -1,11 +1,26 @@
-#aside {
-  position: sticky;
-  top: 70px;
-  clear: both;
-  overflow: visible;
-  height: 168px;
+.profile__container {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
 }
-.flex_row {
+.profile__section {
+  flex: 1;
+  padding: 2rem;
+}
+
+.profile__wrap {
+}
+.profile__content {
+  display: flex;
+}
+
+.profile__btnWrap {
+  display: flex;
+  flex-direction: column;
+  margin-right: 24px;
+}
+
+/* .flex_row {
   display: flex;
 }
 .flex_column {
@@ -24,13 +39,7 @@
 .margin_top {
   margin-top: 16px;
 }
-.btn_sub {
-  width: 100px !important;
-  text-transform: none !important;
-  color: #525960 !important;
-  border-radius: 16px !important;
-  margin-bottom: 8px;
-}
+
 .flexGrow_1 {
   flex-grow: 1;
 }
@@ -54,8 +63,8 @@
 }
 #nav {
   margin-right: 24px;
-}
-#list {
+} */
+/* #list {
   border: 1px solid #ccc;
   border-radius: 8px;
   width: 100%;
@@ -66,9 +75,7 @@
 #userInfo {
   flex-grow: 1;
 }
-#selected {
-  background-color: #f1f2f3;
-}
+
 #field {
   min-height: 100vh;
-}
+} */
